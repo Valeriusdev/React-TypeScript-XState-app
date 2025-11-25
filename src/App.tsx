@@ -1,7 +1,41 @@
+import { createMachine } from "xstate";
+import { useMachine } from "@xstate/react";
+
+const toggleMachine = createMachine({
+  id: "toggle",
+  initial: "inactive",
+  states: {
+    inactive: {
+      on: { TOGGLE: "active" },
+    },
+    active: {
+      on: { TOGGLE: "inactive" },
+    },
+  },
+});
+
 function App() {
+  const [state, send] = useMachine(toggleMachine);
+
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <h1 className="text-2xl font-bold">Hello World</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="text-center">
+        <h1 className="text-3xl font-bold mb-8">XState Toggle</h1>
+
+        <div className="mb-6">
+          <p className="text-xl mb-2">Current State:</p>
+          <p className="text-2xl font-semibold text-blue-600">
+            {String(state.value)}
+          </p>
+        </div>
+
+        <button
+          onClick={() => send({ type: "TOGGLE" })}
+          className="px-6 py-3 bg-blue-500 text-green-700 rounded-lg hover:bg-blue-600 transition-colors"
+        >
+          Toggle
+        </button>
+      </div>
     </div>
   );
 }

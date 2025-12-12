@@ -39,7 +39,7 @@ function ToggleMachine() {
 
         <button
           onClick={() => send({ type: "TOGGLE" })}
-          className="px-6 py-3 bg-blue-500 text-green-700 rounded-lg hover:bg-blue-600 transition-colors"
+          className="px-6 py-3 bg-blue-500 text-green-800 rounded-lg hover:bg-blue-600 transition-colors"
         >
           Toggle
         </button>

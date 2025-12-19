@@ -28,7 +28,7 @@ function ToggleMachine() {
           ← Back to Home
         </Link>
 
-        <h1 className="text-xl font-bold mb-8">XState Toggle Machine</h1>
+        <h1 className="text-xl font-bold mb-10">XState Toggle Machine</h1>
 
         <div className="mb-6">
           <p className="text-xl mb-2">Current State:</p>
